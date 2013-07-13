@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ * @category   Payment
+ * @package    Shd_Parsian
+ * @copyright  Copyright (c) 2013 Shayan Davarzani (shayandavarzani@gmail.com)
+ * @see https://github.com/shayand
+ */
+-->
+<layout version="0.1.0">
+<zarinpal_processing_failure>
+    <reference name="root">
+        <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+    </reference>
+    <reference name="content">
+        <block type="zarinpal/failure" name="zarinpal_failure" template="zarinpal/failure.phtml">
+        </block>
+    </reference>
+</zarinpal_processing_failure>
+<zarinpal_processing_redirect>
+    <reference name="root">
+        <action method="setTemplate"><template>zarinpal/blank.phtml</template></action>
+    </reference>
+    <reference name="content">
+        <block type="zarinpal/redirect" name="zarinpal_redirect" template="zarinpal/redirect.phtml" />
+    </reference>
+</zarinpal_processing_redirect>
+</layout>

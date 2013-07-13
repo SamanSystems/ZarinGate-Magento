@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ * @category   Payment
+ * @package    Shd_Zarinpal
+ * @copyright  Copyright (c) 2013 Shayan Davarzani (shayandavarzani@gmail.com)
+ * @see https://github.com/shayand
+ */
+-->
+<config>
+    <modules>
+        <Shd_Zarinpal>
+            <version>1.0.0</version>
+        </Shd_Zarinpal>
+    </modules>
+
+    <global>
+        <models>
+            <zarinpal>
+                <class>Shd_Zarinpal_Model</class>
+            </zarinpal>
+        </models>
+        <helpers>
+            <zarinpal>
+                <class>Shd_Zarinpal_Helper</class>
+            </zarinpal>
+        </helpers>
+        <resources>
+            <zarinpal_setup>
+                <setup>
+                    <module>Shd_Zarinpal</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </zarinpal_setup>
+            <zarinpal_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </zarinpal_write>
+            <zarinpal_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </zarinpal_read>
+        </resources>
+        <blocks>
+            <zarinpal><class>Shd_Zarinpal_Block</class></zarinpal>
+        </blocks>
+    </global>
+
+    <frontend>
+        <routers>
+            <zarinpal>
+                <use>standard</use>
+                <args>
+                    <module>Shd_Zarinpal</module>
+                    <frontName>zarinpal</frontName>
+                </args>
+            </zarinpal>
+        </routers>
+        <translate>
+            <modules>
+                <Shd_Zarinpal>
+                    <files>
+                        <default>Shd_Zarinpal.csv</default>
+                    </files>
+                </Shd_Zarinpal>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <zarinpal>
+                    <file>zarinpal.xml</file>
+                </zarinpal>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Shd_Zarinpal>
+                    <files>
+                        <default>Shd_Zarinpal.csv</default>
+                    </files>
+                </Shd_Zarinpal>
+            </modules>
+        </translate>
+    </adminhtml>
+	<phoenix>
+		<zarinpal>
+			<verify_url>https://ir.zarinpal.com</verify_url>
+		</zarinpal>
+	</phoenix>
+    <default>
+        <payment>        
+            <zarinpal>
+                <active>0</active>
+                <model>zarinpal/zarinpal</model>
+                <order_status>1</order_status>
+                <title>زرین پال</title>
+                <allowspecific>0</allowspecific>
+                <use_store_currency>0</use_store_currency>
+            </zarinpal>
+        </payment>
+    </default> 
+</config>

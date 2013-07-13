@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Shd_Zarinpal>
+      <active>true</active>
+      <codePool>community</codePool>
+    </Shd_Zarinpal>
+  </modules>
+</config>

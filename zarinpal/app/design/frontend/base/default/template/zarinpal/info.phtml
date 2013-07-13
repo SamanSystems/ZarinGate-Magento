@@ -1,0 +1,15 @@
+<?php 
+/**
+ * Magento
+ * @category   Payment
+ * @package    Shd_Zarinpal
+ * @copyright  Copyright (c) 2013 Shayan Davarzani (shayandavarzani@gmail.com)
+ * @see https://github.com/shayand
+ */	
+	echo $this->getMethod()->getTitle() . '<br/>';
+	if ($this->getInfo()->getLastTransId() == '') {
+		echo '<em>' . "به درگاه زرین پال ارجاع داده خواهید شد" . '</em>';
+	} else {
+		echo $this->__('شماره تراکنش زرین پال: %s', $this->htmlEscape($this->getInfo()->getLastTransId())) . '<br/>';
+	}
+?>

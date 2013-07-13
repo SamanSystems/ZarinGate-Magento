@@ -1,0 +1,28 @@
+<?php 
+/**
+ * Magento
+ * @category   Payment
+ * @package    Shd_Zarinpal
+ * @copyright  Copyright (c) 2013 Shayan Davarzani (shayandavarzani@gmail.com)
+ * @see https://github.com/shayand
+ */
+?>
+<center>
+    <b>در حال اتصال به درگاه زرین پال</b>
+    <br />
+    لطفا منتظر بمانید 
+</center>
+<form id="shd_parsian" action="<?php echo $this->getFormAction();?>" method="POST">
+<?php if (is_array($this->getFormData())): ?>
+    <?php foreach ($this->getFormData() as $name => $value): ?>
+        <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $value; ?>"/>
+    <?php endforeach; ?>
+<?php endif; ?>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+    var paymentform = document.getElementById('shd_parsian');
+    window.onload = paymentform.submit();
+//]]>
+</script>

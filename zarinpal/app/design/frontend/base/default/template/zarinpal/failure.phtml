@@ -1,0 +1,18 @@
+<?php
+/**
+ * Magento
+ * @category   Payment
+ * @package    Shd_Zarinpal
+ * @copyright  Copyright (c) 2013 Shayan Davarzani (shayandavarzani@gmail.com)
+ * @see https://github.com/shayand
+ */
+?>
+<html>
+<meta http-equiv="refresh" content="0; URL=<?php echo $this->getContinueShoppingUrl() ?>">
+<body>
+<div class="page-head">
+    <h3><?php echo $this->__('خطایی رخ داد') ?></h3>
+</div>
+<p><?php echo $this->__('با عرض پوزش خطایی در روند خرید رخ داد <a href="%s">ادامه خرید</a>.', $this->getContinueShoppingUrl()) ?></p>
+</body>
+</html>
