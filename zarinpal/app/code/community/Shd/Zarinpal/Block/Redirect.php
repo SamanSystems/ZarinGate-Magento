@@ -100,7 +100,7 @@ class Shd_Zarinpal_Block_Redirect extends Mage_Core_Block_Template
 		$res = $client->__soapCall('PaymentRequest',$params);
 		
 		if($res->Status == 100 ){
-			$return = "https://www.zarinpal.com/pg/StartPay/" . $result->Authority . "/ZarinGate";
+			$return = "https://de.zarinpal.com/pg/StartPay/" . $result->Authority . "/ZarinGate";
 		}
 		return $return;
     }
