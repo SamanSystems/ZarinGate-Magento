@@ -101,6 +101,9 @@ class Shd_Zarinpal_Block_Redirect extends Mage_Core_Block_Template
 		
 		if($res->Status == 100 ){
 			$return = "https://www.zarinpal.com/pg/StartPay/" . $result->Authority . "/ZarinGate";
+		}else {
+			Mage::log('Zarinpal ERR: ' . $result->Status);
+			echo $result->Status ;
 		}
 		return $return;
     }
