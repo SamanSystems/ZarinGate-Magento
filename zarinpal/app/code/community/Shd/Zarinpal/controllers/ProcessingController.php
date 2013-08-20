@@ -102,7 +102,7 @@ class Shd_Zarinpal_ProcessingController extends Mage_Core_Controller_Front_Actio
 			
 			$res = $client->__soapCall('PaymentVerification',$params);
 			
-			if($res == 100){
+			if($res->Status == 100){
 				
 				$this->_order->getPayment()->setTransactionId($au);
           		$this->_order->getPayment()->setLastTransId($au);
