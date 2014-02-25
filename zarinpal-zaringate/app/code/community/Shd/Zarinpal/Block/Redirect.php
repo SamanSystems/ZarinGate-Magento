@@ -71,8 +71,6 @@ class Shd_Zarinpal_Block_Redirect extends Mage_Core_Block_Template
      */
     public function getFormAction()
     {
-    		   
-		
 		$order = $this->_getOrder()->_data;
 		$array = $this->_getOrder()->getPayment()->getMethodInstance()->getFormFields();
 		$price = $array["price"];
@@ -91,19 +89,19 @@ class Shd_Zarinpal_Block_Redirect extends Mage_Core_Block_Template
 					'Description' 	=> $order["entity_id"] ,
 					'Email' 		=> '' ,
 					'Mobile' 		=> '' ,
-					'CallbackURL' 	=> $CallbackURL
-
+					'CallbackURL' 	=> $callBackUrl
 					);
-
-		
+		//var_dump($params);return false;			
 		$client = new SoapClient('https://de.zarinpal.com/pg/services/WebGate/wsdl');
-		$res = $client->__soapCall('PaymentRequest',$params);
-		
+		//var_dump($client);
+		$res = $client->PaymentRequest($params);
+		//var_dump($res);
+		//return false;
 		if($res->Status == 100 ){
-			$return = "https://www.zarinpal.com/pg/StartPay/" . $result->Authority . "/ZarinGate";
+			$return = "https://www.zarinpal.com/pg/StartPay/" . $res->Authority . "/ZarinGate";
 		}else {
 			Mage::log('Zarinpal ERR: ' . $result->Status);
-			echo $result->Status ;
+			echo $res->Status ;
 		}
 		return $return;
     }

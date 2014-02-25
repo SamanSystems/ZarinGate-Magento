@@ -57,9 +57,9 @@ class Shd_Zarinpal_ProcessingController extends Mage_Core_Controller_Front_Actio
                 $session->getQuote()->setIsActive(false)->save();
                 $session->clear();
             }
-
             $this->loadLayout();
             $this->renderLayout();
+			
             return;
         } catch (Mage_Core_Exception $e) {
             $this->_getCheckout()->addError($e->getMessage());
@@ -100,7 +100,7 @@ class Shd_Zarinpal_ProcessingController extends Mage_Core_Controller_Front_Actio
 		    
 			$client = new SoapClient('https://de.zarinpal.com/pg/services/WebGate/wsdl');
 			
-			$res = $client->__soapCall('PaymentVerification',$params);
+			$res = $client->PaymentVerification($params);
 			
 			if($res->Status == 100){
 				
